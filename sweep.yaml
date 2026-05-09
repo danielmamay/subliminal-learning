@@ -1,0 +1,22 @@
+program: run_experiment.py
+method: grid
+metric:
+  name: mean/student_aux_same
+  goal: maximize
+parameters:
+  dataset:
+    values: [mnist] # fashion-mnist
+  n-seeds:
+    values: [100]
+  n-epochs-teacher:
+    values: [5]
+  n-epochs-student:
+    values: [5]
+  n-aux:
+    values: [3] # 1, 2, 3, 4, 8, 16, 32
+command:
+  - uv
+  - run
+  - python
+  - ${program}
+  - ${args}
